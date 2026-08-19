@@ -17,4 +17,10 @@ const users: User[] = [
 ];
 
 @Injectable()
-export class UsersService {}
+export class UsersService {
+  async findUserByName(username: string): Promise<User | undefined> {
+    return await Promise.resolve(
+      users.find((user) => user.username === username),
+    );
+  }
+}
