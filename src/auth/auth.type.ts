@@ -8,3 +8,8 @@ export type AuthResult = {
   userId: number;
   username: string;
 };
+
+export type TokenPayload = {
+  sub: number;
+  username: string;
+};

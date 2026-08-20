@@ -3,13 +3,12 @@ import { JwtModule } from '@nestjs/jwt';
 
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { UsersService } from '../users/users.service';
 import { UsersModule } from '../users/users.module';
 import { JWT_SECRET } from '../config/jwt-secret';
 
 @Module({
   controllers: [AuthController],
-  providers: [AuthService, UsersService],
+  providers: [AuthService],
   imports: [
     UsersModule,
     JwtModule.register({

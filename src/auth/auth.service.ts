@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
-import type { SignInData, AuthResult } from './auth.type';
+import type { SignInData, AuthResult, TokenPayload } from './auth.type';
 import { LoginDto } from './auth.dto';
 import { UsersService } from '../users/users.service';
 
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   async signIn(user: SignInData): Promise<AuthResult> {
-    const tokenPayload = {
+    const tokenPayload: TokenPayload = {
       sub: user.userId,
       username: user.username,
     };
