@@ -27,10 +27,6 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('me')
   getUserInfo(@Req() request: Request) {
-    if (request.user) {
-      return request.user;
-    }
-
-    return 'sage';
+    return request.user;
   }
 }
